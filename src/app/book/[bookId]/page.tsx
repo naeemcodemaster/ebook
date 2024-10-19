@@ -14,14 +14,15 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
             throw new Error('Failed to fetch the book details');
         }
         book = await response.json();
-    } catch (error) {
-        console.error('Error fetching single book:', error);
+    } catch {
+        console.error('Error fetching single book');
         return (
             <div className="container py-5">
                 <p className="text-red-500">Failed to load the book details. Please try again later.</p>
             </div>
         );
     }
+    
 
     if (!book) {
         return (
