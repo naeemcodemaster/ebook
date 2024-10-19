@@ -4,7 +4,7 @@ import BookCard from './BookCard';
 import { Book } from '@/types';
 const BookList = async() => {
 
-  const response = await fetch(`${process.env.BASE_URL}/books`, {
+  const response = await fetch(`${process.env.BASE_URL}books`, {
     method: 'GET',
     // cache:'no-cache'
 
