@@ -5,7 +5,10 @@ import React from 'react'
 const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
     let book: Book | null = null;
     try {
-        const response = await fetch(`${process.env.BASE_URL}/books/${params.bookId}`);
+        const response = await fetch(`${process.env.BASE_URL}/books/${params.bookId}`,{
+            method:'GET',
+            cache:'no-cache'
+        });
         if (!response.ok) {
             throw new Error('Error fetching single book in if condition');
         }
