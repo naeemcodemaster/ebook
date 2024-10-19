@@ -6,7 +6,12 @@ const BookList = async() => {
 
   const response = await fetch(`${process.env.BASE_URL}/books`, {
     method: 'GET',
-    cache:'no-cache'
+    // cache:'no-cache'
+
+    // every 1 hours will get new data  (stored in next js cache)
+    next:{
+      revalidate:3600
+    }
   });
 
   if (!response.ok) {
