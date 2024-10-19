@@ -10,7 +10,7 @@ function BookCard({book}:{book:Book}) {
         <div>
             <h2 className='line-clamp-2 font-bold text-primary-50 text-balance'>{book.title}</h2>
             <p className='font-bold text-orange-800 mt-0'>{book.author.name}</p>
-            <Link href={`/book/${book._id}`} className='border border-primary-100 inline-block py-1 px-2 rounded mt-2 text-sm font-medium hover:bg-primary-50 hover:text-white transition'>Read More</Link>
+            <Link href={`/book/${book._id}`} className='border border-primary-100 inline-block py-1 px-2 rounded mt-2 text-sm font-medium hover:bg-primary-50 hover:text-white transition'>Read More...</Link>
         </div>
 
     </div>
