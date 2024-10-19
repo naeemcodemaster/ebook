@@ -5,17 +5,20 @@ import DownloadButton from './components/DownloadButton';
 
 const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
     let book: Book | null = null;
+
     try {
         const response = await fetch(`${process.env.BASE_URL}/books/${params.bookId}`, {
             method: 'GET',
             cache: 'no-cache',
         });
+
         if (!response.ok) {
             throw new Error('Failed to fetch the book details');
         }
+        
         book = await response.json();
     } catch (error) {
-        console.error('Error fetching single book:', error); // Log the error
+        console.error('Error fetching single book:', error);
         return (
             <div className="container py-5">
                 <p className="text-red-500">Failed to load the book details. Please try again later.</p>
@@ -44,9 +47,10 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
                     src={book.coverImage}
                     alt={book.title}
                     className="rounded-md border"
-                    height={500} // Set appropriate height
-                    width={400}  // Set appropriate width
+                    height={500}
+                    width={400}
                     sizes="100vw"
+                    priority // Optionally add this if you want to preload the image
                 />
             </div>
         </div>
